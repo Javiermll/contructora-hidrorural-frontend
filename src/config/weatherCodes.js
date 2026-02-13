@@ -1,0 +1,25 @@
+export const WEATHER_CODE_MAP = {
+  0: { label: "Despejado", emoji: "☀️" },
+  1: { label: "Mayormente despejado", emoji: "🌤️" },
+  2: { label: "Parcialmente nublado", emoji: "⛅" },
+  3: { label: "Nublado", emoji: "☁️" },
+  45: { label: "Nieblas", emoji: "🌫️" },
+  48: { label: "Escarcha con niebla", emoji: "🌫️" },
+  51: { label: "Llovizna ligera", emoji: "🌦️" },
+  53: { label: "Llovizna", emoji: "🌦️" },
+  55: { label: "Llovizna intensa", emoji: "🌧️" },
+  61: { label: "Lluvia ligera", emoji: "🌧️" },
+  63: { label: "Lluvia", emoji: "🌧️" },
+  65: { label: "Lluvia intensa", emoji: "🌧️" },
+  71: { label: "Nieve ligera", emoji: "🌨️" },
+  73: { label: "Nieve", emoji: "🌨️" },
+  75: { label: "Nieve intensa", emoji: "❄️" },
+  80: { label: "Chubascos ligeros", emoji: "🌧️" },
+  81: { label: "Chubascos", emoji: "🌧️" },
+  82: { label: "Chubascos intensos", emoji: "🌧️" },
+  95: { label: "Tormenta", emoji: "⛈️" },
+  96: { label: "Tormenta con granizo", emoji: "⛈️" },
+  99: { label: "Tormenta fuerte con granizo", emoji: "⛈️" },
+};
+
+export const DEFAULT_WEATHER_DESCRIPTION = { label: "Clima", emoji: "🌡️" };

@@ -1,0 +1,427 @@
+.cotizacion {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 3.5rem 1rem;
+}
+
+.cotizacion-container {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2.2rem;
+  margin-top: 65px;
+  transform: scale(0.9);
+  align-items: center;
+}
+
+.cotizacion-left {
+  padding: 0.6rem 0 0.6rem 7rem;
+}
+
+.cotizacion-title {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #0f172a;
+}
+
+.cotizacion-copy {
+  margin: 1rem 0 1.6rem;
+  max-width: 520px;
+  color: rgba(15, 23, 42, 0.82);
+  line-height: 1.55;
+}
+
+.cotizacion-info {
+  display: grid;
+  width: 70%;
+  gap: 1.2rem;
+}
+
+.cotizacion-info-item {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.cotizacion-info-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: #1b6aa6;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.cotizacion-info-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+.cotizacion-info-value {
+  margin: 0.25rem 0 0;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cotizacion-right {
+  background: #1b83b6;
+  border-radius: 6px;
+  padding: 1.4rem 1.4rem 1.2rem;
+}
+
+.cotizacion-form-title {
+  margin: 0 0 1.1rem;
+  text-align: center;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.cotizacion-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.cotizacion-field input,
+.cotizacion-field textarea {
+  width: 100%;
+  border: none;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 0.9rem 1rem;
+  border-radius: 2px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.cotizacion-field textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+.cotizacion-field input::placeholder,
+.cotizacion-field textarea::placeholder {
+  color: rgba(15, 23, 42, 0.55);
+}
+
+.cotizacion-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cotizacion-submit {
+  border: none;
+  border-radius: 2px;
+  padding: 0.9rem 1.25rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background: #0b4e8a;
+  color: #ffffff;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.cotizacion-submit:hover,
+.cotizacion-submit:focus {
+  transform: translateY(-2px);
+  background: #0a4274;
+  box-shadow: 0 10px 30px rgba(11, 78, 138, 0.4);
+}
+
+.cotizacion-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 980px) {
+  .cotizacion-container {
+    grid-template-columns: 1fr;
+  }
+
+  .cotizacion-right {
+    border-radius: 10px;
+  }
+}
+
+/* --- Responsive: Desktop → Tablet (1080px - 546px) --- */
+@media (max-width: 1080px) and (min-width: 546px) {
+  .cotizacion {
+    padding: 2.6rem 1rem;
+  }
+
+  .cotizacion-container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-top: 32px;
+    transform: none;
+    align-items: start;
+  }
+
+  .cotizacion-left {
+    padding: 0 1rem 0 1rem;
+    width: 70%;
+    place-self: center;
+  }
+
+  .cotizacion-title {
+    font-size: 2rem;
+    place-self: center;
+  }
+
+  .cotizacion-copy {
+    max-width: 100%;
+    margin-bottom: 1rem;
+    text-align: justify;
+  }
+
+  .cotizacion-info {
+    width: 100%;
+    display: grid;
+    gap: 0.9rem;
+    place-content: center;
+    margin: 40px;
+  }
+
+  .cotizacion-info-item {
+    grid-template-columns: 40px 1fr;
+    gap: 0.7rem;
+  }
+
+  .cotizacion-right {
+    border-radius: 12px;
+    padding: 1.2rem;
+    width: 70%;
+    place-self: center;
+  }
+
+  .cotizacion-form-title {
+    font-size: 0.98rem;
+  }
+
+  .cotizacion-actions {
+    justify-content: flex-end;
+  }
+}
+
+/* --- Responsive: Tablet → Mobile (545px - 320px) --- */
+@media (max-width: 545px) and (min-width: 320px) {
+  .cotizacion {
+    padding: 5.6rem 0.8rem;
+  }
+
+  .cotizacion-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 18px;
+    transform: none;
+  }
+
+  .cotizacion-left {
+    padding: 0 0.6rem;
+  }
+
+  .cotizacion-title {
+    font-size: 1.6rem;
+    line-height: 1.1;
+  }
+
+  .cotizacion-copy {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin-bottom: 0.9rem;
+  }
+
+  .cotizacion-info {
+    width: 100%;
+    gap: 0.7rem;
+    margin: 35px 10px;
+    justify-content: center;
+  }
+
+  .cotizacion-info-item {
+    grid-template-columns: 36px 1fr;
+    gap: 0.6rem;
+  }
+
+  .cotizacion-right {
+    padding: 1rem;
+  }
+
+  .cotizacion-field input,
+  .cotizacion-field textarea {
+    padding: 0.75rem 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  .cotizacion-field textarea {
+    min-height: 140px;
+  }
+
+  .cotizacion-actions {
+    justify-content: center;
+  }
+
+  .cotizacion-submit {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+  }
+}
+
+/* --- Mensaje emergente (status) --- */
+.cotizacion-status-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(2, 6, 23, 0.35);
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding-top: 12vh;
+}
+
+.cotizacion-status {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  min-width: 320px;
+  max-width: 880px;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 18px 50px rgba(2, 6, 23, 0.36);
+  animation: cotizacion-fade-in 240ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+  backdrop-filter: blur(6px) saturate(120%);
+}
+
+.cotizacion-status.ok {
+  background: linear-gradient(90deg, #16a34a 0%, #059669 100%);
+}
+
+.cotizacion-status.error {
+  background: linear-gradient(90deg, #dc2626 0%, #be123c 100%);
+}
+
+.cotizacion-status .msg {
+  flex: 1 1 auto;
+  font-size: 0.96rem;
+}
+
+.cotizacion-status button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 900;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Popup internal layout */
+.cotizacion-status-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  flex: 0 0 46px;
+}
+
+.cotizacion-status-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  color: #fff;
+}
+
+.cotizacion-status-title {
+  font-size: 0.98rem;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+}
+
+.cotizacion-status-msg {
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.cotizacion-status-close {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    background 120ms ease;
+}
+
+.cotizacion-status-close:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Reduce size on mobile */
+@media (max-width: 540px) {
+  .cotizacion-status-overlay {
+    padding-top: 6vh;
+  }
+  .cotizacion-status {
+    padding: 0.8rem;
+    min-width: 260px;
+  }
+  .cotizacion-status-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .cotizacion-status-close {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@keyframes cotizacion-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

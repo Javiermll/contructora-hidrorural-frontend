@@ -1,0 +1,712 @@
+.carousel-separador {
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 3.3em 0 -0.3em 0;
+}
+.carousel-separador svg {
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(21, 101, 192, 0.1));
+}
+.carousel-accesos-directos {
+  width: 85%;
+  margin-top: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-self: flex-start;
+}
+
+.acceso-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 54px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(33, 53, 71, 0.08);
+  border-left: 6px solid #1565c0;
+  padding: 0.7em 1.2em 0.7em 1.1em;
+  transition:
+    box-shadow 0.18s,
+    background 0.18s,
+    border-color 0.18s,
+    transform 0.18s;
+  text-decoration: none;
+  color: #1565c0;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+/* --- BOTÓN CONTÁCTANOS DISTINTIVO --- */
+.acceso-card.acceso-contacto {
+  background: linear-gradient(90deg, #646cff 60%, #1565c0 100%);
+  color: #fff;
+  border-left: 6px solid #1565c0;
+  box-shadow:
+    0 6px 32px 0 rgba(100, 108, 255, 0.25),
+    0 0 0 4px #646cff55;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.22rem;
+  min-height: 62px;
+  z-index: 3;
+  outline: none;
+  border-radius: 18px;
+  border-right: 3.5px solid #fff3e0;
+  border-top: 2.5px solid #fff3e0;
+  border-bottom: 2.5px solid #fff3e0;
+}
+.acceso-card.acceso-contacto .acceso-title {
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1.22rem;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0 2px 8px #d84315cc,
+    0 1px 0 #fff3e0;
+}
+.acceso-card.acceso-contacto .acceso-icon svg path,
+.acceso-card.acceso-contacto .acceso-arrow svg path {
+  fill: #fff !important;
+}
+.acceso-card.acceso-contacto .acceso-arrow {
+  opacity: 1;
+}
+.acceso-card.acceso-contacto:hover,
+.acceso-card.acceso-contacto:focus {
+  background: linear-gradient(90deg, #d84315 60%, #ff9800 100%);
+  color: #fff;
+  border-left: 6px solid #fff3e0;
+  box-shadow:
+    0 10px 40px 0 #ff9800cc,
+    0 0 0 5px #d8431555;
+  transform: translateY(-3px) scale(1.045);
+}
+.acceso-card.acceso-contacto:hover .acceso-title,
+.acceso-card.acceso-contacto:focus .acceso-title {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 5px;
+  text-decoration-color: #fff3e0;
+}
+.acceso-card.acceso-contacto:hover .acceso-icon,
+.acceso-card.acceso-contacto:focus .acceso-icon {
+  transform: scale(1.22) rotate(-8deg);
+}
+.acceso-card.acceso-contacto:hover .acceso-arrow,
+.acceso-card.acceso-contacto:focus .acceso-arrow {
+  transform: translateX(12px) scale(1.22);
+  opacity: 1;
+}
+.acceso-card:hover,
+.acceso-card:focus {
+  background: #fff7f0;
+  box-shadow:
+    0 8px 32px rgba(255, 152, 0, 0.18),
+    0 0 0 3px #ff980055;
+  border-left: 6px solid #ff9800;
+  color: #ff9800;
+  transform: translateY(-2px) scale(1.025);
+  outline: none;
+  z-index: 2;
+}
+.acceso-icon {
+  flex: 0 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1em;
+  transition:
+    color 0.18s,
+    filter 0.18s,
+    transform 0.18s;
+}
+.acceso-icon svg path {
+  fill: #1565c0;
+  transition: fill 0.18s;
+}
+.acceso-card:hover .acceso-icon,
+.acceso-card:focus .acceso-icon {
+  transform: scale(1.18) rotate(-6deg);
+}
+.acceso-card:hover .acceso-icon svg path,
+.acceso-card:focus .acceso-icon svg path {
+  fill: #ff9800 !important;
+}
+.acceso-title {
+  flex: 1 1 auto;
+  font-size: 1.13rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #1565c0;
+  transition:
+    color 0.18s,
+    transform 0.18s,
+    text-decoration-color 0.18s;
+  position: relative;
+}
+.acceso-card:hover .acceso-title,
+.acceso-card:focus .acceso-title {
+  color: #ff9800;
+  transform: scale(1.07);
+  text-decoration: underline;
+  text-decoration-thickness: 2.5px;
+  text-underline-offset: 4px;
+  text-decoration-color: #ff9800;
+}
+.acceso-arrow {
+  flex: 0 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1em;
+  opacity: 0.85;
+  transition:
+    transform 0.18s,
+    color 0.18s;
+}
+.acceso-arrow svg path {
+  fill: #1565c0;
+  transition: fill 0.18s;
+}
+.acceso-card:hover .acceso-arrow,
+.acceso-card:focus .acceso-arrow {
+  transform: translateX(8px) scale(1.18);
+  opacity: 1;
+}
+.acceso-card:hover .acceso-arrow svg path,
+.acceso-card:focus .acceso-arrow svg path {
+  fill: #ff9800;
+}
+/* Layout para la sección de proyectos con texto a la izquierda y carrusel a la derecha */
+.carousel-section-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 26px auto 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  min-height: clamp(560px, 82vh, 760px);
+  gap: 30px;
+}
+/* Asegura que todos los elementos usen border-box para evitar desbordes */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*.carousel-container-flex::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100%;
+  background: #0b78e4;
+  z-index: 0;
+}*/
+
+.carousel-intro-text {
+  flex: 1 1 320px;
+  max-width: 500px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: baseline;
+  height: fit-content;
+  position: relative;
+  z-index: 1;
+  transform: scale(0.8);
+}
+
+.carousel-intro-text > * {
+  position: relative;
+  z-index: 1;
+}
+.carousel-kicker {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #1565c0;
+  letter-spacing: 0.01em;
+  align-self: flex-start;
+}
+
+.carousel-intro-text h2 {
+  font-size: clamp(4.6rem, 4.2vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  margin: 0 0 18px;
+  color: #232b32;
+  text-align: start;
+}
+
+.carousel-hero-copy {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #27323a;
+  opacity: 0.92;
+  max-width: 55ch;
+  text-align: justify;
+}
+
+.carousel-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.carousel-cta-primary,
+.carousel-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition:
+    transform 0.18s,
+    box-shadow 0.18s,
+    background 0.18s,
+    border-color 0.18s;
+}
+
+.carousel-cta-primary {
+  background: #c62828;
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(198, 40, 40, 0.24);
+  cursor: pointer;
+}
+
+.carousel-cta-secondary {
+  background: #2f3a46;
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(47, 58, 70, 0.18);
+}
+
+.carousel-cta-primary:hover,
+.carousel-cta-primary:focus,
+.carousel-cta-secondary:hover,
+.carousel-cta-secondary:focus {
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.carousel-container-flex {
+  flex: 1 2 600px;
+  min-width: 320px;
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+}
+/* Contenedor */
+.carousel {
+  --height: 635px;
+  position: relative;
+  width: 100%;
+  max-width: max-content;
+  height: 100%;
+  min-height: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Imagen: la colocamos en z-index bajo y la hacemos más oscura mediante filtro/overlay */
+.carousel-img {
+  width: 103%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.7s cubic-bezier(0.4, 1, 0.6, 1),
+    opacity 0.5s cubic-bezier(0.4, 1, 0.6, 1);
+  will-change: transform, opacity;
+  z-index: 1;
+  transform-origin: center center;
+  filter: brightness(1.1) saturate(2.06) blur(0.35px);
+}
+
+/* Oscurecer todo el slide para mejorar legibilidad del texto (opcional extra) */
+.carousel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Overlay central con información del proyecto (centrada horizontal y verticalmente relativa al centro) */
+.carousel-info {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -6%);
+  width: min(1100px, 90%);
+  z-index: 3;
+  text-align: center;
+  color: var(--carousel-info-color, #fff);
+  padding: 22px 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(33, 53, 71, 0.08) 0%,
+    rgba(10, 14, 22, 0.91) 100%
+  );
+  border-radius: 18px;
+  box-shadow: 0 8px 40px rgba(33, 53, 71, 0.28);
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+  transition:
+    background 0.35s,
+    color 0.35s;
+}
+
+/* Tipografía grande y centrada como en la imagen */
+.carousel-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.7rem, 3.7vw, 3.2rem);
+  line-height: 1.08;
+  font-weight: 900;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+  letter-spacing: 0.01em;
+  transition: color 0.35s;
+  position: relative;
+  display: inline-block;
+}
+
+.carousel-location {
+  margin: 0 0 10px;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  opacity: 0.9;
+  display: none; /* ocultado para imitar la imagen; quitar display si se desea mostrar */
+}
+
+.carousel-desc {
+  margin: 0;
+  font-size: clamp(1.01rem, 1.18vw, 1.13rem);
+  max-width: 900px;
+  margin-inline: auto;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+  font-weight: 800;
+  transition: color 0.35s;
+  position: relative;
+}
+
+/* Doble capa de texto: contorno + texto principal (para que el blanco "salte") */
+.carousel-text-outline {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 4px rgba(0, 0, 0, 0.95);
+  filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.95))
+    drop-shadow(0 10px 24px rgba(0, 0, 0, 0.75));
+  pointer-events: none;
+}
+
+.carousel-desc .carousel-text-outline {
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.88);
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.95))
+    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.7));
+}
+
+.carousel-text-main {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 0 transparent;
+  text-shadow: 0 10px 26px rgba(0, 0, 0, 0.92);
+}
+
+/* Accesibilidad */
+.carousel:focus {
+  outline: none;
+}
+
+/* Responsive adjustments por rangos personalizados */
+
+/* 1080px a 545px */
+@media (max-width: 1080px) and (min-width: 546px) {
+  .carousel-section-flex {
+    position: relative;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+    padding: 0;
+    min-height: clamp(640px, 92vh, 820px);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .carousel-container-flex {
+    position: absolute;
+    inset: 0;
+    margin-top: 0;
+    max-width: none;
+    min-width: 0;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .carousel {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    max-width: none;
+  }
+
+  .carousel-img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.82) saturate(1.15);
+  }
+
+  .carousel::after {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 14, 22, 0.62) 0%,
+      rgba(10, 14, 22, 0.68) 55%,
+      rgba(10, 14, 22, 0.78) 100%
+    );
+  }
+
+  .carousel-intro-text {
+    padding: 2.2em 1.2em 1.2em 1.2em;
+    max-width: 98vw;
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transform: none;
+    z-index: 2;
+  }
+
+  .carousel-kicker {
+    align-self: center;
+    color: rgba(227, 242, 253, 0.95);
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+    margin: 0;
+  }
+
+  .carousel-intro-text h2 {
+    font-size: clamp(3.2rem, 6vw, 4rem);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    color: #ffffff;
+    text-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .carousel-hero-copy {
+    margin: 20px 0 40px;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+  }
+
+  .carousel-accesos-directos {
+    width: 70%;
+    gap: 12px;
+    margin-top: 1.1em;
+    align-self: center;
+  }
+  .carousel-accesos-directos .acceso-card {
+    min-height: 48px;
+    font-size: 1.05rem;
+    border-radius: 13px;
+    padding: 0.6em 1em 0.6em 0.9em;
+    text-align: center;
+  }
+  .carousel-accesos-directos .acceso-card.acceso-contacto {
+    font-size: 1.11rem;
+    min-height: 52px;
+    border-radius: 15px;
+  }
+  .carousel-container-flex {
+    justify-content: center;
+  }
+  .carousel {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .carousel-info {
+    transform: translate(-50%, -8%);
+    width: 98vw;
+    min-width: 0;
+    padding: 16px 8px;
+  }
+  .carousel-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin: 0 0 0.7em 0;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    color: #fff !important;
+    -webkit-text-fill-color: #fff;
+    text-align: -webkit-center;
+  }
+  .carousel-desc {
+    font-size: 0.95rem;
+    text-align: left;
+    padding: 0 2px;
+  }
+}
+
+/* 545px a 320px: imagen como fondo y contenido encima */
+@media (max-width: 545px) and (min-width: 320px) {
+  .carousel-section-flex {
+    position: relative;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    min-height: clamp(620px, 92vh, 900px);
+  }
+
+  .carousel-container-flex {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    max-width: none;
+    min-width: 0;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
+    justify-content: center;
+  }
+
+  .carousel {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  .carousel-img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.78) saturate(1.15);
+  }
+
+  .carousel::after {
+    background: linear-gradient(
+      180deg,
+      rgba(10, 14, 22, 0.66) 0%,
+      rgba(10, 14, 22, 0.72) 55%,
+      rgba(10, 14, 22, 0.84) 100%
+    );
+  }
+
+  .carousel-intro-text {
+    padding: 1.6em 0.95em 1.1em 0.95em;
+    max-width: 98vw;
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    transform: none;
+    z-index: 2;
+  }
+
+  .carousel-kicker {
+    align-self: center;
+    color: rgba(227, 242, 253, 0.95);
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+    margin: 0;
+  }
+
+  .carousel-intro-text h2 {
+    font-size: clamp(2.2rem, 9vw, 3.1rem);
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    color: #ffffff;
+    text-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  .carousel-hero-copy {
+    margin: 14px 0 40px;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+    text-align: center;
+  }
+
+  .carousel-accesos-directos {
+    width: 92%;
+    gap: 8px;
+    margin-top: 1em;
+    align-self: center;
+  }
+
+  .carousel-accesos-directos .acceso-card {
+    min-height: 42px;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    padding: 0.42em 0.75em;
+    text-align: center;
+  }
+
+  .carousel-accesos-directos .acceso-card.acceso-contacto {
+    font-size: 1.02rem;
+    min-height: 46px;
+    border-radius: 12px;
+  }
+
+  /* Mantener el overlay informativo oculto en este layout */
+  .carousel-info {
+    display: none;
+  }
+}
+
+/* 319px o menos: compactar sin romper el fondo */
+@media (max-width: 319px) {
+  .carousel-intro-text {
+    padding: 1.25em 0.75em 0.95em 0.75em;
+    margin-top: 14px;
+  }
+
+  .carousel-intro-text h2 {
+    font-size: 2rem;
+  }
+
+  .carousel-accesos-directos .acceso-card {
+    font-size: 0.92rem;
+    min-height: 40px;
+  }
+
+  .carousel-accesos-directos .acceso-card.acceso-contacto {
+    font-size: 0.98rem;
+    min-height: 44px;
+  }
+}
