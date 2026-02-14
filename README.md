@@ -2,6 +2,10 @@
 
 Frontend SPA construido con **React + Vite**.
 
+## Resumen del proyecto
+
+Esta web está orientada a presentar los servicios de **Constructora Hidrorural**, destacando su experiencia en proyectos de infraestructura hídrica y sanitaria: agua potable rural, habilitación de pozos, pruebas de bombeo, tratamiento de aguas servidas y sistemas de aguas lluvias. Incluye secciones de servicios, proyectos ejecutados con mapa, información corporativa y un formulario de cotización/contacto.
+
 ## Requisitos
 
 - Node.js (LTS recomendado)
@@ -44,6 +48,6 @@ node scripts/optimize-images.mjs
 
 La aplicación se ha desplegado en GitHub Pages en:
 
-https://Javiermll.github.io/contructora-hidrorural-frontend/
+- https://Javiermll.github.io/contructora-hidrorural-frontend/
 
 Si más adelante quieres cambiar el dominio, edita `vite.config.js` y la URL en este README.
