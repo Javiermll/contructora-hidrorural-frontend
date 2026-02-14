@@ -52,7 +52,7 @@ function Contacto() {
             </div>
             <div className="contacto-aside">
               <img
-                src="/assets/Hidrorural_Vertical.png"
+                src={`${import.meta.env.BASE_URL}assets/Hidrorural_Vertical.png`}
                 alt="Ilustración contacto"
                 loading="lazy"
               />
