@@ -19,7 +19,7 @@ const servicios = [
       "Implementación de sistemas de cloración y desinfección.",
     ],
     imagen: "#",
-    imagenDescriptiva: "/assets/ImagenDescriptiva1.webp",
+    imagenDescriptiva: "assets/ImagenDescriptiva1.webp",
   },
   {
     nombre: "Habilitación de Pozos",
@@ -35,7 +35,7 @@ const servicios = [
       "Aseguramiento de eficiencia operativa y prolongación de la vida útil del pozo.",
     ],
     imagen: "#",
-    imagenDescriptiva: "/assets/perforacion_de_pozos.webp",
+    imagenDescriptiva: "assets/perforacion_de_pozos.webp",
   },
   {
     nombre: "Pruebas de Bombeo",
@@ -52,7 +52,7 @@ const servicios = [
       "Elaboración de informes técnicos para respaldo de proyectos y trámites regulatorios.",
     ],
     imagen: "#",
-    imagenDescriptiva: "/assets/prueba_de_bombeo.webp",
+    imagenDescriptiva: "assets/prueba_de_bombeo.webp",
   },
   {
     nombre: "Tratamiento de aguas servidas",
@@ -69,7 +69,7 @@ const servicios = [
       "Mantención preventiva para asegurar funcionamiento continuo y eficiente.",
     ],
     imagen: "#",
-    imagenDescriptiva: "/assets/Tratamiento_Aguas_Servidas.webp",
+    imagenDescriptiva: "assets/Tratamiento_Aguas_Servidas.webp",
   },
   {
     nombre: "Sistemas de aguas lluvias",
@@ -85,7 +85,7 @@ const servicios = [
       "Ejecución conforme a normativa técnica y planes reguladores.",
     ],
     imagen: "#",
-    imagenDescriptiva: "/assets/Aguas_lluvia.webp",
+    imagenDescriptiva: "assets/Aguas_lluvia.webp",
   },
 ];
 

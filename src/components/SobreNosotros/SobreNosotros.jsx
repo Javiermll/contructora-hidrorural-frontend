@@ -7,7 +7,7 @@ function SobreNosotros() {
       <div className="about-hero">
         <div className="about-hero-content">
           <img
-            src="/assets/LogoHidrorural.png"
+            src={`${import.meta.env.BASE_URL}assets/LogoHidrorural.png`}
             alt="Logo Hidrorural"
             className="about-hero-logo"
           />
@@ -22,7 +22,7 @@ function SobreNosotros() {
 
       <div className="about-grid">
         <div className="about-image">
-          <img src="/assets/imagen1.webp" alt="Obras y proyectos Hidrorural" />
+          <img src={`${import.meta.env.BASE_URL}assets/imagen1.webp`} alt="Obras y proyectos Hidrorural" />
         </div>
         <div className="about-text">
           <h2>Quiénes somos</h2>

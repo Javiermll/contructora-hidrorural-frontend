@@ -3,11 +3,11 @@ import "./Clientes.css";
 
 function Clientes() {
   const logos = [
-    { src: "/assets/Logo1.png", alt: "Cliente 1" },
-    { src: "/assets/Logo2.png", alt: "Cliente 2" },
-    { src: "/assets/Logo3.jpg", alt: "Cliente 3" },
-    { src: "/assets/Logo4.jpg", alt: "Cliente 4" },
-    { src: "/assets/Logo5.jpg", alt: "Cliente 5" },
+    { src: "assets/Logo1.png", alt: "Cliente 1" },
+    { src: "assets/Logo2.png", alt: "Cliente 2" },
+    { src: "assets/Logo3.jpg", alt: "Cliente 3" },
+    { src: "assets/Logo4.jpg", alt: "Cliente 4" },
+    { src: "assets/Logo5.jpg", alt: "Cliente 5" },
   ];
   const [logoActivo, setLogoActivo] = useState(0);
 
@@ -26,10 +26,10 @@ function Clientes() {
     <>
       <h3 className="clientes-titulo">Nuestros clientes</h3>
       <div className="logos-carrusel">
-        {logos.map((logo, idx) => (
+          {logos.map((logo, idx) => (
           <img
             key={logo.alt}
-            src={logo.src}
+            src={`${import.meta.env.BASE_URL}${logo.src}`}
             alt={logo.alt}
             className={[
               "logo-cliente",

@@ -3,6 +3,8 @@ import WeatherCard from "../Api_WeatherCard/WeatherCard";
 import "./Proyectos.css";
 import Clientes from "../Clientes/Clientes";
 
+const asset = (p) => `${import.meta.env.BASE_URL}${String(p).replace(/^\//, "")}`;
+
 const proyectos = [
   {
     nombre: "Mejoramiento planta de tratamiento, Santa Amelia y Villa Laja",
@@ -164,11 +166,9 @@ function Proyectos() {
             <div
               className={`proyecto-info-horizontal tarjeta-anim-${animTarjeta}`}
             >
-              <div className="proyecto-info-img">
+                <div className="proyecto-info-img">
                 <img
-                  src={
-                    proyectos[activo].imagen || "/assets/proyecto-default.jpg"
-                  }
+                  src={asset(proyectos[activo].imagen || "/assets/proyecto-default.jpg")}
                   alt={proyectos[activo].nombre}
                   loading="lazy"
                 />
@@ -210,7 +210,7 @@ function Proyectos() {
                       style={{ "--map-aspect": mapaAspect }}
                     >
                       <img
-                        src={mapaImagen}
+                        src={asset(mapaImagen)}
                         alt={mapaAlt}
                         className="proyectos-mapa"
                         loading="lazy"
