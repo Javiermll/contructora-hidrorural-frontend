@@ -39,3 +39,11 @@ node scripts/optimize-images.mjs
 
 - Build command: `npm run build`
 - Publish directory: `dist`
+
+## Enlace del despliegue
+
+La aplicación se ha desplegado en GitHub Pages en:
+
+https://Javiermll.github.io/contructora-hidrorural-frontend/
+
+Si más adelante quieres cambiar el dominio, edita `vite.config.js` y la URL en este README.
