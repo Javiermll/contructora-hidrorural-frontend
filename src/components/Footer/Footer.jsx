@@ -154,7 +154,7 @@ function Footer() {
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/company/hidrorural/"
+            href="https://cl.linkedin.com/company/hidrorural-ltda"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
