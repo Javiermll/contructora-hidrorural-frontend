@@ -125,7 +125,10 @@ function Footer() {
         </nav>
 
         <div className="footer-logo">
-          <img src={`${import.meta.env.BASE_URL}assets/LogoHidrorural.png`} alt="Constructora Hidrorural" />
+          <img
+            src={`${import.meta.env.BASE_URL}assets/LogoHidrorural.png`}
+            alt="Constructora Hidrorural"
+          />
           <div className="footer-copy">
             Copyright © 2026 Constructora Hidrorural
           </div>

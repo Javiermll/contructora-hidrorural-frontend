@@ -26,7 +26,7 @@ function Clientes() {
     <>
       <h3 className="clientes-titulo">Nuestros clientes</h3>
       <div className="logos-carrusel">
-          {logos.map((logo, idx) => (
+        {logos.map((logo, idx) => (
           <img
             key={logo.alt}
             src={`${import.meta.env.BASE_URL}${logo.src}`}

@@ -22,7 +22,10 @@ function SobreNosotros() {
 
       <div className="about-grid">
         <div className="about-image">
-          <img src={`${import.meta.env.BASE_URL}assets/imagen1.webp`} alt="Obras y proyectos Hidrorural" />
+          <img
+            src={`${import.meta.env.BASE_URL}assets/imagen1.webp`}
+            alt="Obras y proyectos Hidrorural"
+          />
         </div>
         <div className="about-text">
           <h2>Quiénes somos</h2>

@@ -118,8 +118,8 @@ function Cotizacion() {
               </div>
               <div>
                 <p className="cotizacion-info-label">LLÁMANOS</p>
-                <p className="cotizacion-info-value">+56 9 9932 2121</p>
-                <p className="cotizacion-info-value">+56 9 9932 2212</p>
+                <p className="cotizacion-info-value">+56 9 0000 0000</p>
+                <p className="cotizacion-info-value">+56 9 0000 0000</p>
               </div>
             </div>
           </div>
