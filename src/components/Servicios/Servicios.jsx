@@ -18,7 +18,6 @@ const servicios = [
       "Instalación de estanques elevados y semienterrados para regulación de consumo.",
       "Implementación de sistemas de cloración y desinfección.",
     ],
-    imagen: "#",
     imagenDescriptiva: "assets/ImagenDescriptiva1.webp",
   },
   {
@@ -34,7 +33,6 @@ const servicios = [
       "Mantención preventiva y correctiva de sistemas de extracción.",
       "Aseguramiento de eficiencia operativa y prolongación de la vida útil del pozo.",
     ],
-    imagen: "#",
     imagenDescriptiva: "assets/perforacion_de_pozos.webp",
   },
   {
@@ -51,7 +49,6 @@ const servicios = [
       "Determinación de parámetros hidráulicos como transmisividad y coeficiente de almacenamiento.",
       "Elaboración de informes técnicos para respaldo de proyectos y trámites regulatorios.",
     ],
-    imagen: "#",
     imagenDescriptiva: "assets/prueba_de_bombeo.webp",
   },
   {
@@ -68,7 +65,6 @@ const servicios = [
       "Puesta en marcha y ajustes operativos.",
       "Mantención preventiva para asegurar funcionamiento continuo y eficiente.",
     ],
-    imagen: "#",
     imagenDescriptiva: "assets/Tratamiento_Aguas_Servidas.webp",
   },
   {
@@ -84,87 +80,31 @@ const servicios = [
       "Evaluación de riesgos de inundación.",
       "Ejecución conforme a normativa técnica y planes reguladores.",
     ],
-    imagen: "#",
     imagenDescriptiva: "assets/Aguas_lluvia.webp",
   },
 ];
 
-// Iconos SVG para cada servicio
 const iconosServicios = [
-  // Redes de Agua Potable Rural
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M11 2C11 2 4 11.5 4 16C4 19.3137 7.13401 22 11 22C14.866 22 18 19.3137 18 16C18 11.5 11 2 11 2Z"
-      fill="#1976d2"
-    />
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M11 2C11 2 4 11.5 4 16C4 19.3137 7.13401 22 11 22C14.866 22 18 19.3137 18 16C18 11.5 11 2 11 2Z" fill="#1976d2" />
     <circle cx="11" cy="16" r="3.5" fill="#fff" fillOpacity="0.8" />
   </svg>,
-  // Habilitación de Pozos
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="6" y="10" width="10" height="7" rx="2" fill="#1976d2" />
     <rect x="9" y="4" width="4" height="8" rx="2" fill="#90caf9" />
     <rect x="10.25" y="13" width="1.5" height="4" rx="0.75" fill="#fff" />
   </svg>,
-  // Pruebas de Bombeo
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <circle
-      cx="11"
-      cy="11"
-      r="9"
-      stroke="#1976d2"
-      strokeWidth="2"
-      fill="#e3f2fd"
-    />
-    <path
-      d="M11 6V11L15 13"
-      stroke="#1976d2"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="11" cy="11" r="9" stroke="#1976d2" strokeWidth="2" fill="#e3f2fd" />
+    <path d="M11 6V11L15 13" stroke="#1976d2" strokeWidth="2" strokeLinecap="round" />
   </svg>,
-  // Sistemas de tratamiento de aguas servidas
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="3" y="12" width="16" height="6" rx="3" fill="#1976d2" />
     <ellipse cx="11" cy="15" rx="7" ry="2" fill="#90caf9" />
     <rect x="8.5" y="6" width="5" height="7" rx="2.5" fill="#fff" />
   </svg>,
-  // Sistemas de aguas lluvias
-  <svg
-    width="22"
-    height="22"
-    viewBox="0 0 22 22"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M6 13C6 10.2386 8.23858 8 11 8C13.7614 8 16 10.2386 16 13"
-      stroke="#1976d2"
-      strokeWidth="2"
-    />
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 13C6 10.2386 8.23858 8 11 8C13.7614 8 16 10.2386 16 13" stroke="#1976d2" strokeWidth="2" />
     <ellipse cx="11" cy="16" rx="7" ry="3" fill="#90caf9" />
     <rect x="10" y="3" width="2" height="7" rx="1" fill="#1976d2" />
   </svg>,
@@ -172,10 +112,7 @@ const iconosServicios = [
 
 function Servicios() {
   const [activo, setActivo] = useState(0);
-
   const servicioActivo = servicios[activo];
-
-  const puntos = servicioActivo.puntos;
 
   return (
     <section
@@ -185,14 +122,10 @@ function Servicios() {
     >
       <div className="servicios-container">
         <header className="servicios-header">
-          <p className="servicios-kicker">NUESTROS SERVICIOS</p>
+          <p className="servicios-kicker">Nuestros Servicios</p>
           <h2 className="servicios-titulo">
             <span className="servicios-titulo-icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M12 2.8C12 2.8 6.8 9.4 6.8 13.6C6.8 17.2 9.8 20.2 12 20.2C14.2 20.2 17.2 17.2 17.2 13.6C17.2 9.4 12 2.8 12 2.8Z"
                   fill="currentColor"
@@ -239,41 +172,55 @@ function Servicios() {
           <div className="servicios-main">
             <article
               key={servicioActivo.nombre}
-              className="servicios-panel servicios-panel--detalle servicios-detalle servicios-detalle-animado"
+              className="servicios-panel servicios-detalle-animado"
               aria-label="Detalle del servicio"
             >
-              <h3 className="servicios-detalle-titulo visible">
-                {servicioActivo.nombre}
-              </h3>
-              <p className="servicios-detalle-descripcion">
-                {servicioActivo.descripcion}
-              </p>
-              <ul className="servicios-puntos">
-                {puntos.map((p) => (
-                  <li key={p}>{p}</li>
-                ))}
-              </ul>
-            </article>
-
-            <aside
-              key={servicioActivo.imagenDescriptiva}
-              className="servicios-panel servicios-panel--media servicios-imagen servicios-imagen-animada"
-              aria-label="Imagen descriptiva"
-            >
-              <div className="servicios-media">
+              {/* Banner imagen */}
+              <div className="servicios-panel-banner">
                 <img
+                  key={servicioActivo.imagenDescriptiva}
                   src={servicioActivo.imagenDescriptiva}
-                  alt={`Imagen descriptiva de ${servicioActivo.nombre}`}
-                  className="servicios-imagen-img"
+                  alt={`Imagen de ${servicioActivo.nombre}`}
+                  className="servicios-banner-img"
                   loading="lazy"
                 />
-                <div className="servicios-media-body">
+              </div>
+
+              {/* Cuerpo: título + descripción + bullets + CTA */}
+              <div className="servicios-panel-body">
+                <h3 className="servicios-detalle-titulo">
+                  {servicioActivo.nombre}
+                </h3>
+                <p className="servicios-detalle-descripcion">
+                  {servicioActivo.descripcion}
+                </p>
+                <ul className="servicios-puntos">
+                  {servicioActivo.puntos.map((p) => (
+                    <li key={p}>{p}</li>
+                  ))}
+                </ul>
+                <div className="servicios-panel-cta">
                   <Link to="/cotizacion" className="servicios-link-contacto">
                     Solicitar cotización
+                    <svg
+                      width="16"
+                      height="16"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeWidth="2.3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 12h14M13 6l6 6-6 6"
+                      />
+                    </svg>
                   </Link>
                 </div>
               </div>
-            </aside>
+            </article>
           </div>
         </div>
       </div>

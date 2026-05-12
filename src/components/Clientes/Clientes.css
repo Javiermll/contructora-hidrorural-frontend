@@ -1,268 +1,142 @@
-.clientes-titulo {
-  margin-bottom: 0.7em;
-  font-size: 1.5em;
-  font-weight: 600;
-  color: #213547;
-  letter-spacing: 1px;
-  text-align: center;
-  background: linear-gradient(90deg, #19a9e7 0%, #213547 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+/* =====================================================
+   CLIENTES — franja de logos elegante
+   ===================================================== */
 
-.logos-carrusel {
+.clientes-wrapper {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 2em;
+  gap: 2.4rem;
+}
+
+/* ── Encabezado con líneas decorativas ─────────────── */
+.clientes-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
   width: 100%;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #b6c6d6 #fafdff;
-  -webkit-overflow-scrolling: touch;
 }
 
-.logo-cliente {
-  width: 110px;
-  height: 70px;
-  object-fit: contain;
-  opacity: 0.4;
-  filter: grayscale(80%);
+.clientes-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(33, 53, 71, 0.18) 40%,
+    rgba(33, 53, 71, 0.18) 60%,
+    transparent
+  );
+}
+
+.clientes-kicker {
+  margin: 0;
+  flex: 0 0 auto;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(33, 53, 71, 0.42);
+  font-family: var(--type-sans);
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Fila de logos ──────────────────────────────────── */
+.clientes-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.clientes-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.5rem;
+  border-radius: 14px;
+  border: 1px solid transparent;
   transition:
-    opacity 0.5s,
-    filter 0.5s,
-    box-shadow 0.3s,
-    transform 0.6s;
-  position: relative;
-  cursor: pointer;
+    background var(--t-base),
+    border-color var(--t-base),
+    transform var(--t-fast);
+  cursor: default;
 }
 
-.logo-cliente:not(:first-child)::before {
-  content: "";
-  position: absolute;
-  left: -1em;
-  top: 15%;
-  width: 127px;
-  height: 81px;
-  background: linear-gradient(180deg, #e3eaf2 0%, #b6c6d6 100%);
-  border-radius: 2px;
-  opacity: 0.7;
-  z-index: 1;
+.clientes-logo-item:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(33, 53, 71, 0.09);
+  transform: translateY(-2px);
 }
 
-.logo-cliente.activo {
-  opacity: 1;
-  filter: none;
+.clientes-logo-item img {
+  width: auto;
+  height: 50px;
+  max-width: 130px;
+  object-fit: contain;
+  display: block;
+  filter: grayscale(1) opacity(0.45);
+  transition: filter var(--t-base);
 }
 
-@media (max-width: 700px) {
-  .logos-carrusel {
-    gap: 1.2em;
-    padding: 0.5em 0.5em 0.5em 0.5em;
-    justify-content: flex-start;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  .logo-cliente {
-    width: 80px;
-    height: 48px;
-    min-width: 70px;
-    min-height: 40px;
-    max-width: 90px;
-    max-height: 54px;
-  }
-  .logo-cliente:not(:first-child)::before {
-    left: -0.7em;
-    width: 1.2px;
-  }
+.clientes-logo-item:hover img {
+  filter: grayscale(0) opacity(1);
 }
 
-/* Tablet: 1080 - 546px — aumentar tamaño de logos para mejor visibilidad */
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablet: 546px – 1080px */
 @media (max-width: 1080px) and (min-width: 546px) {
-  .logos-carrusel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 0.6em 0.6em;
-    overflow: hidden;
+  .clientes-wrapper {
+    padding: 0 1.5rem;
+    gap: 2rem;
   }
 
-  /* Ocultar todos los logos excepto prev/activo/next para evitar recortes */
-  .logo-cliente {
-    display: none;
+  .clientes-logo-item img {
+    height: 42px;
+    max-width: 110px;
   }
 
-  .logo-cliente.prev,
-  .logo-cliente.activo,
-  .logo-cliente.next {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    transition:
-      transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 360ms ease,
-      filter 360ms ease;
-    pointer-events: auto;
-  }
-
-  .logo-cliente.activo {
-    width: 148px;
-    height: 84px;
-    opacity: 1;
-    filter: none;
-    transform: scale(1);
-  }
-
-  .logo-cliente.prev,
-  .logo-cliente.next {
-    width: 120px;
-    height: 68px;
-    opacity: 0.32;
-    filter: grayscale(60%);
-    transform: scale(0.92);
-  }
-
-  /* asegurar que la imagen se ajuste sin recorte */
-  .logo-cliente {
-    object-fit: contain;
+  .clientes-logo-item {
+    padding: 0.75rem 1.1rem;
   }
 }
 
-/* Mobile: 545 - 321px — logos ligeramente más pequeños que tablet pero mayores que la configuración anterior */
-@media (max-width: 545px) and (min-width: 321px) {
-  .logos-carrusel {
-    position: relative;
-    justify-content: center;
-    gap: 0;
-    padding: 0.7em 0.35em;
-    overflow: hidden;
-    scrollbar-width: none;
-    scroll-snap-type: none;
-  }
-  .logos-carrusel::-webkit-scrollbar {
-    display: none;
+/* Mobile: ≤545px */
+@media (max-width: 545px) {
+  .clientes-wrapper {
+    padding: 0 1.25rem;
+    gap: 1.6rem;
   }
 
-  .logo-cliente {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 128px;
-    height: 72px;
-    min-width: 128px;
-    min-height: 72px;
-    max-width: 128px;
-    max-height: 72px;
-    object-fit: contain;
-    transform: translate(-50%, -50%) scale(0.92);
-    opacity: 0;
-    filter: grayscale(80%);
-    pointer-events: none;
-    transition:
-      left 520ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 520ms ease,
-      filter 520ms ease;
-    will-change: left, transform, opacity;
-    z-index: 1;
+  .clientes-header {
+    gap: 0.75rem;
   }
 
-  .logo-cliente:not(:first-child)::before {
-    content: none;
+  .clientes-kicker {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
   }
 
-  .logo-cliente.activo {
-    left: 50%;
-    opacity: 1;
-    filter: none;
-    transform: translate(-50%, -50%) scale(1);
-    pointer-events: auto;
-    z-index: 3;
+  .clientes-logos {
+    gap: 0.25rem;
   }
 
-  .logo-cliente.prev,
-  .logo-cliente.next {
-    opacity: 0.26;
-    transform: translate(-50%, -50%) scale(0.9);
-    z-index: 2;
-    width: 104px;
-    height: 56px;
-    min-width: 104px;
-    min-height: 56px;
+  .clientes-logo-item {
+    padding: 0.6rem 0.9rem;
+    border-radius: 10px;
   }
 
-  .logo-cliente.prev {
-    left: 14%;
-  }
-
-  .logo-cliente.next {
-    left: 86%;
-  }
-}
-
-/* Replicar el diseño de tablet (1080-546) en móvil (545-320): mostrar sólo prev/activo/next centrados */
-@media (max-width: 545px) and (min-width: 320px) {
-  .logos-carrusel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 0.6em;
-    overflow: hidden;
-  }
-
-  .logo-cliente {
-    display: none !important;
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
-    opacity: 0 !important;
-    filter: grayscale(80%) !important;
-    pointer-events: none !important;
-    width: auto !important;
-    height: auto !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-  }
-
-  .logo-cliente.prev,
-  .logo-cliente.activo,
-  .logo-cliente.next {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    transition:
-      transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 360ms ease,
-      filter 360ms ease;
-    pointer-events: auto;
-    opacity: 1 !important;
-    filter: none !important;
-  }
-
-  .logo-cliente.activo {
-    width: 148px !important;
-    height: 84px !important;
-    transform: scale(1) !important;
-  }
-
-  .logo-cliente.prev,
-  .logo-cliente.next {
-    width: 120px !important;
-    height: 68px !important;
-    opacity: 0.32 !important;
-    filter: grayscale(60%) !important;
-    transform: scale(0.92) !important;
-  }
-
-  .logo-cliente {
-    object-fit: contain;
+  .clientes-logo-item img {
+    height: 36px;
+    max-width: 90px;
   }
 }

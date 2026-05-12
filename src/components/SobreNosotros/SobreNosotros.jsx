@@ -3,201 +3,144 @@ import "./SobreNosotros.css";
 
 function SobreNosotros() {
   return (
-    <section id="sobre-nosotros" className="sobre-nosotros-section">
-      <div className="about-hero">
-        <div className="about-hero-content">
-          <img
-            src={`${import.meta.env.BASE_URL}assets/LogoHidrorural.png`}
-            alt="Logo Hidrorural"
-            className="about-hero-logo"
-          />
-          <h1 className="about-hero-title">Constructora Hidrorural Ltda.</h1>
-          <p className="about-hero-subtitle">
-            Líder en infraestructura y servicios hídricos, con foco en
-            soluciones sostenibles y de alta calidad para comunidades urbanas y
-            rurales.
+    <div className="sn-page">
+      {/* Hero oscuro */}
+      <section className="sn-hero" aria-label="Sobre nosotros">
+        <div className="sn-hero-grid-bg" aria-hidden="true" />
+        <div className="sn-hero-content">
+          <p className="sn-hero-kicker">Sobre nosotros</p>
+          <h1 className="sn-hero-title">Constructora Hidrorural</h1>
+          <p className="sn-hero-subtitle">
+            Empresa chilena de ingeniería hídrica y construcción sanitaria.
+            Desde 2019 desarrollamos infraestructura de calidad para comunidades
+            urbanas y rurales del sur de Chile.
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="about-grid">
-        <div className="about-image">
-          <img
-            src={`${import.meta.env.BASE_URL}assets/imagen1.webp`}
-            alt="Obras y proyectos Hidrorural"
-          />
-        </div>
-        <div className="about-text">
-          <h2>Quiénes somos</h2>
-          <p>
-            Constructora Hidrorural es una empresa líder en el desarrollo de
-            proyectos de infraestructura y servicios para el sector rural y
-            urbano. Con años de experiencia, nos especializamos en soluciones
-            innovadoras, sostenibles y de alta calidad, comprometidos con el
-            crecimiento y bienestar de nuestras comunidades.
-          </p>
-          <div className="about-actions">
-            <Link to="/cotizacion" className="btn-primary">
+      {/* Quiénes somos */}
+      <section className="sn-quienes">
+        <div className="sn-quienes-inner">
+          <div className="sn-quienes-img">
+            <img
+              src={`${import.meta.env.BASE_URL}assets/ImagenDescriptiva1.webp`}
+              alt="Equipo de Constructora Hidrorural en obra"
+            />
+          </div>
+          <div className="sn-quienes-text">
+            <p className="sn-section-kicker">Quiénes somos</p>
+            <h2 className="sn-section-title">
+              Ingeniería hídrica con propósito
+            </h2>
+            <p className="sn-section-body">
+              Somos una empresa especializada en el diseño y ejecución de
+              proyectos de infraestructura sanitaria e hídrica. Trabajamos con
+              organismos públicos como el DOH y ESSBIO, y con comunidades
+              rurales a lo largo de la Región del Biobío y Ñuble.
+            </p>
+            <p className="sn-section-body">
+              Nuestro equipo técnico combina experiencia en terreno con rigor
+              normativo, asegurando que cada proyecto cumpla con los más altos
+              estándares de calidad y eficiencia.
+            </p>
+            <Link to="/cotizacion" className="sn-cta">
               Contáctanos
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="mv-cards">
-        <div className="mv-card">
-          <div className="mv-icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2l7 5v10l-7 5-7-5V7l7-5z"
-                stroke="#19a9e7"
-                strokeWidth="2"
-              />
-              <path
-                d="M9 12h6"
-                stroke="#19a9e7"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-          <h3>Misión</h3>
-          <p>
-            Desarrollar proyectos que mejoren la disponibilidad y calidad de
-            servicios de agua e infraestructura pública, aportando eficiencia,
-            sostenibilidad y valor social a las comunidades.
-          </p>
-        </div>
-        <div className="mv-card">
-          <div className="mv-icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="9" stroke="#19a9e7" strokeWidth="2" />
-              <path
-                d="M12 7v10M7 12h10"
-                stroke="#19a9e7"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
-          <h3>Visión</h3>
-          <p>
-            Ser referentes en soluciones hídricas e infraestructura, impulsando
-            el desarrollo sostenible mediante altos estándares técnicos y
-            operacionales.
-          </p>
-        </div>
-      </div>
-
-      <div className="stats-row">
-        <div className="stat-card">
-          <div className="stat-icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-              <rect
-                x="3"
-                y="5"
-                width="18"
-                height="16"
-                rx="2"
-                stroke="#19a9e7"
-                strokeWidth="2"
-              />
-              <path
-                d="M16 3v4M8 3v4"
-                stroke="#19a9e7"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path d="M3 9h18" stroke="#19a9e7" strokeWidth="2" />
-            </svg>
-          </div>
-          <div className="stat-content">
-            <div className="stat-value">Desde 2019</div>
-            <div className="stat-desc">
-              Experiencia brindando soluciones de infraestructura y servicios
-              hídricos para el sector público y privado.
+      {/* Misión / Visión */}
+      <section className="sn-mv">
+        <div className="sn-mv-inner">
+          <div className="sn-mv-card">
+            <div className="sn-mv-icon-badge" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L4 7v10l8 5 8-5V7l-8-5z"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M12 22V12M4 7l8 5 8-5"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </div>
+            <h3 className="sn-mv-title">Misión</h3>
+            <p className="sn-mv-body">
+              Desarrollar proyectos que mejoren la disponibilidad y calidad de
+              los servicios de agua e infraestructura pública, aportando
+              eficiencia, sostenibilidad y valor social a las comunidades que
+              atendemos.
+            </p>
+          </div>
+          <div className="sn-mv-card">
+            <div className="sn-mv-icon-badge" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+                <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
+                <path
+                  d="M12 3v3M12 18v3M3 12h3M18 12h3"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <h3 className="sn-mv-title">Visión</h3>
+            <p className="sn-mv-body">
+              Ser referentes en soluciones hídricas e infraestructura sanitaria
+              a nivel nacional, impulsando el desarrollo sostenible mediante
+              altos estándares técnicos, innovación y compromiso con el
+              territorio.
+            </p>
           </div>
         </div>
-        <div className="stat-card">
-          <div className="stat-icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-              <rect
-                x="3"
-                y="7"
-                width="7"
-                height="13"
-                rx="2"
-                stroke="#19a9e7"
-                strokeWidth="2"
-              />
-              <rect
-                x="14"
-                y="3"
-                width="7"
-                height="17"
-                rx="2"
-                stroke="#19a9e7"
-                strokeWidth="2"
-              />
-              <path
-                d="M7 10h1M7 13h1M7 16h1M18 6h1M18 9h1M18 12h1M18 15h1"
-                stroke="#19a9e7"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-            </svg>
+      </section>
+
+      {/* Stats */}
+      <section className="sn-stats">
+        <div className="sn-stats-inner">
+          <div className="sn-stat-card">
+            <div className="sn-stat-value">2019</div>
+            <div className="sn-stat-label">Año de fundación</div>
+            <p className="sn-stat-desc">
+              Más de 6 años entregando soluciones de infraestructura hídrica
+              para el sector público y privado en el sur de Chile.
+            </p>
           </div>
-          <div className="stat-content">
-            <div className="stat-value">+60 proyectos ejecutados</div>
-            <div className="stat-desc">
+          <div className="sn-stat-card">
+            <div className="sn-stat-value">+60</div>
+            <div className="sn-stat-label">Proyectos ejecutados</div>
+            <p className="sn-stat-desc">
               Obras públicas y privadas para DOH, ESSBIO y otras entidades,
-              abarcando diversa envergadura y complejidad.
-            </div>
+              abarcando diversa envergadura y complejidad técnica.
+            </p>
           </div>
-        </div>
-        <div className="stat-card">
-          <div className="stat-icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-              <rect
-                x="3"
-                y="11"
-                width="4"
-                height="8"
-                rx="1"
-                stroke="#19a9e7"
-                strokeWidth="2"
-              />
-              <rect
-                x="9"
-                y="7"
-                width="4"
-                height="12"
-                rx="1"
-                stroke="#19a9e7"
-                strokeWidth="2"
-              />
-              <rect
-                x="15"
-                y="3"
-                width="4"
-                height="16"
-                rx="1"
-                stroke="#19a9e7"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-          <div className="stat-content">
-            <div className="stat-value">$4.2 mil millones</div>
-            <div className="stat-desc">
+          <div className="sn-stat-card">
+            <div className="sn-stat-value">$4.2B</div>
+            <div className="sn-stat-label">En infraestructura</div>
+            <p className="sn-stat-desc">
               Más de $4.200 millones invertidos en infraestructura y servicios,
-              impulsando el bienestar de comunidades.
-            </div>
+              impulsando el bienestar de comunidades rurales y urbanas.
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 

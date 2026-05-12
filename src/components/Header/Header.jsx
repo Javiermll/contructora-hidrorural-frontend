@@ -119,6 +119,14 @@ function Header() {
 
   const [activeTab, setActiveTab] = useState(getInitialTab);
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 60);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const scrollToSection = useCallback((id) => {
     const el = document.getElementById(id);
@@ -433,16 +441,16 @@ function Header() {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className={`nav-link${activeTab === "cotizacion" ? " active" : ""}`}
+              className={`nav-link nav-link-cta${activeTab === "cotizacion" ? " active" : ""}`}
             >
-              Cotizacion
+              Cotización
             </a>
           ) : (
             <Link
               to="/cotizacion"
-              className={`nav-link${activeTab === "cotizacion" ? " active" : ""}`}
+              className={`nav-link nav-link-cta${activeTab === "cotizacion" ? " active" : ""}`}
             >
-              Cotizacion
+              Cotización
             </Link>
           ),
         mobile:
@@ -454,7 +462,7 @@ function Header() {
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 setShowHamburgerMenu(false);
               }}
-              className={`nav-link${activeTab === "cotizacion" ? " active" : ""}`}
+              className={`nav-link nav-link-cta${activeTab === "cotizacion" ? " active" : ""}`}
             >
               {mobileLabel("cotizacion", "Cotización")}
             </a>
@@ -462,7 +470,7 @@ function Header() {
             <Link
               to="/cotizacion"
               onClick={() => setShowHamburgerMenu(false)}
-              className={`nav-link${activeTab === "cotizacion" ? " active" : ""}`}
+              className={`nav-link nav-link-cta${activeTab === "cotizacion" ? " active" : ""}`}
             >
               {mobileLabel("cotizacion", "Cotización")}
             </Link>
@@ -473,7 +481,7 @@ function Header() {
   );
 
   return (
-    <header className="header header-scrolled">
+    <header className={`header${isScrolled ? " header--solid" : ""}`}>
       <div className="logo-container">
         {location.pathname === "/" ? (
           <a

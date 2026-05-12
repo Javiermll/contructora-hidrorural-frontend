@@ -1,302 +1,228 @@
-.contacto-outer {
+/* =====================================================
+   CONTACTO — sección oscura estilo ingeniería
+   ===================================================== */
+
+.contacto-section {
+  position: relative;
   width: 100%;
-  min-height: 30vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 100px;
+  padding: 6rem 0;
+  background: linear-gradient(
+    145deg,
+    var(--clr-footer) 0%,
+    var(--clr-footer-deep) 100%
+  );
+  overflow: hidden;
 }
 
-.contacto-bg-rect {
-  width: 90vw;
-  min-width: 340px;
-  max-width: 1100px;
-  min-height: 300px;
-  background: linear-gradient(180deg, #e9e5e5 -27%, #4c94d5 63%, #1565c0 100%);
-  border-radius: 16px;
-  box-shadow: 0 2px 8px #213547;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 2.5em;
+/* Patrón de grilla técnica tipo blueprint */
+.contacto-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(25, 169, 231, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 169, 231, 0.055) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  /* Desvanece los bordes */
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 85% at 50% 50%,
+    rgba(0, 0, 0, 0.8) 0%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 90% 85% at 50% 50%,
+    rgba(0, 0, 0, 0.8) 0%,
+    transparent 100%
+  );
 }
 
+/* Layout de dos columnas */
 .contacto-inner {
-  width: 100%;
-  transform: scale(0.85);
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-.contacto-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1.5em;
-  margin-bottom: 2em;
-}
-
-.contacto-title {
-  max-width: 520px;
-}
-
+/* ── Columna izquierda ───────────────────────────────── */
 .contacto-kicker {
-  margin: 0 0 0.35em 0;
-  font-size: 0.72em;
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 2px;
-  color: black;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--clr-primary-light);
+  font-family: var(--type-sans);
 }
 
-.contacto-title h2 {
-  margin: 0;
-  color: black;
-  font-size: 2.1em;
+.contacto-headline {
+  margin: 0 0 1.2rem;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 800;
-  line-height: 1.15;
+  color: #ffffff;
+  line-height: 1.1;
+  font-family: var(--type-serif);
+  letter-spacing: -0.3px;
+}
+
+.contacto-subtext {
+  margin: 0 0 2.2rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 1rem;
+  line-height: 1.68;
+  max-width: 44ch;
+  font-family: var(--type-sans);
 }
 
 .contacto-cta {
-  align-self: flex-start;
-  text-decoration: none;
-  background: #213547;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.88em 1.85em;
+  background: var(--clr-primary-light);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 10px;
-  padding: 0.7em 1.3em;
-  font-size: 0.95em;
-  font-weight: 800;
-  letter-spacing: 1px;
-  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.97rem;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  letter-spacing: 0.01em;
   transition:
-    transform 0.18s ease,
-    background 0.18s ease;
+    background var(--t-fast),
+    transform var(--t-fast),
+    box-shadow var(--t-fast);
+  box-shadow: 0 8px 28px rgba(25, 169, 231, 0.35);
 }
 
-.contacto-cta:hover {
+.contacto-cta:hover,
+.contacto-cta:focus-visible {
+  background: var(--clr-primary);
   transform: translateY(-2px);
-  background: rgba(13, 34, 54, 0.68);
+  box-shadow: 0 14px 36px rgba(25, 169, 231, 0.28);
+  color: #ffffff;
+  outline: none;
 }
 
+/* ── Columna derecha: tarjetas ───────────────────────── */
 .contacto-cards {
   display: flex;
-  gap: 1.2em;
-  align-items: stretch;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .contacto-card {
-  flex: 1 1 0;
-  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 0.9em;
-  padding: 1em 1.1em;
-  border-radius: 12px;
-  border: 1px solid #213547;
+  gap: 1.1rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  transition:
+    background var(--t-fast),
+    border-color var(--t-fast),
+    transform var(--t-fast);
+}
+
+.contacto-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(25, 169, 231, 0.35);
+  transform: translateX(4px);
 }
 
 .contacto-card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #213547;
-  color: #ffffff;
-  font-size: 1.1em;
+  background: rgba(25, 169, 231, 0.18);
+  color: var(--clr-primary-light);
   flex: 0 0 auto;
 }
 
 .contacto-card-label {
   margin: 0;
-  font-size: 0.8em;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  font-family: var(--type-sans);
 }
 
 .contacto-card-value {
-  margin: 0.1em 0 0 0;
-  font-size: 0.98em;
-  font-weight: 700;
-  color: #ffffff;
-  word-break: break-word;
+  margin: 0.28rem 0 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: var(--type-sans);
 }
 
-.contacto-aside {
-  display: none;
-}
-.contacto-aside img {
-  width: 100%;
-  height: 220px;
-  display: block;
-}
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 
-/* CTA secundario bajo la imagen (visible sólo en 960-664px) */
-.contacto-cta-aside {
-  display: none;
-}
-
-/* --- Responsive: Desktop → Tablet (1072px - 688px) --- */
-@media (max-width: 1072px) and (min-width: 688px) {
-  .contacto-bg-rect {
-    width: 94vw;
-    min-width: 340px;
-    max-width: 980px;
-    padding: 1.8em 1.2em;
-    min-height: 260px;
+/* Tablet: 546px – 1080px */
+@media (max-width: 1080px) and (min-width: 546px) {
+  .contacto-section {
+    padding: 5rem 0;
   }
 
   .contacto-inner {
-    transform: none;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 2rem;
   }
 
-  .contacto-kicker {
-    font-size: 0.75em;
-    justify-self: center;
+  .contacto-subtext {
+    max-width: 100%;
   }
 
-  .contacto-top {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  .contacto-headline {
+    font-size: clamp(1.9rem, 4vw, 2.4rem);
+  }
+}
+
+/* Mobile: 320px – 545px */
+@media (max-width: 545px) {
+  .contacto-section {
+    padding: 4rem 0;
+  }
+
+  .contacto-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .contacto-headline {
+    font-size: clamp(1.7rem, 7vw, 2.2rem);
+  }
+
+  .contacto-subtext {
+    font-size: 0.95rem;
+    max-width: 100%;
   }
 
   .contacto-cta {
-    align-self: stretch;
-    width: 300px;
-    text-align: -webkit-center;
-    align-self: center;
-    padding: 0.65em 1em;
-    font-size: 0.95em;
-  }
-
-  .contacto-cards {
-    flex-direction: column;
-    gap: 0.9rem;
-    margin-top: 0.6rem;
-    justify-self: flex-start;
+    width: 100%;
+    justify-content: center;
   }
 
   .contacto-card {
-    padding: 0.9em 1em;
-    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    gap: 0.9rem;
   }
 
   .contacto-card-icon {
     width: 38px;
     height: 38px;
-    border-radius: 8px;
-    font-size: 1em;
-  }
-
-  .contacto-card-label {
-    font-size: 0.78em;
-  }
-
-  .contacto-card-value {
-    font-size: 0.95em;
-  }
-}
-
-/* --- Responsive: Tablet → Mobile (688px - 320px) --- */
-@media (max-width: 687px) and (min-width: 320px) {
-  .contacto-bg-rect {
-    width: 96vw;
-    min-width: 300px;
-    padding: 1.2em 0.9em;
-    min-height: 220px;
-    border-radius: 12px;
-  }
-
-  .contacto-inner {
-    transform: none;
-  }
-
-  .contacto-top {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .contacto-kicker {
-    font-size: 0.68em;
-    text-align: center;
-  }
-
-  .contacto-title h2 {
-    font-size: 1.25em;
-    text-align: center;
-  }
-
-  .contacto-cta {
-    align-self: stretch;
-    width: 40%;
-    align-self: center;
-    text-align: center;
-    padding: 0.6em 0.8em;
-    font-size: 0.92em;
-  }
-
-  .contacto-cards {
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 0.5rem;
-    place-self: center;
-  }
-
-  .contacto-card {
-    padding: 0.75em 0.9em;
-    gap: 0.7em;
-  }
-
-  .contacto-card-icon {
-    width: 36px;
-    height: 36px;
-    font-size: 0.95em;
-  }
-
-  .contacto-card-label {
-    font-size: 0.72em;
-  }
-
-  .contacto-card-value {
-    font-size: 0.9em;
-  }
-}
-
-/* Mostrar imagen al lado derecho de las tarjetas en tablet (960-664) */
-@media (max-width: 960px) and (min-width: 664px) {
-  .contacto-bottom {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .contacto-cards {
-    flex: 1 1 0;
-    max-width: calc(100% - 280px);
-  }
-  .contacto-aside {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 0 0 320px;
-  }
-
-  .contacto-cta-aside {
-    display: block;
-    width: 260px;
-    text-align: center;
-  }
-
-  .contacto-top .contacto-cta {
-    display: none;
-  }
-}
-/* Ocultar imagen en móvil (663px - 320px) */
-@media (max-width: 663px) and (min-width: 320px) {
-  .contacto-aside {
-    display: none;
   }
 }
