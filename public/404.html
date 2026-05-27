@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Constructora Hidrorural</title>
+    <script>
+      // Redirect SPA — GitHub Pages BrowserRouter fix
+      // Preserves the path and query string so React Router can handle the route.
+      var seg = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          "//" +
+          l.hostname +
+          (l.port ? ":" + l.port : "") +
+          l.pathname
+            .split("/")
+            .slice(0, 1 + seg)
+            .join("/") +
+          "/?p=/" +
+          l.pathname.slice(1).split("/").slice(seg).join("/").replace(/&/g, "~and~") +
+          (l.search ? "&q=" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+          l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

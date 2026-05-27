@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Proyectos.css";
 
 const asset = (p) =>
@@ -36,9 +35,7 @@ function Proyectos() {
   const [activo, setActivo] = useState(0);
   const [anim, setAnim] = useState("in");
 
-  const total = proyectos.length;
   const proyecto = proyectos[activo];
-  const parrafos = proyecto.descripcion.split(/\n\n+/);
 
   const selectProyecto = (idx) => {
     if (idx === activo) return;
@@ -48,9 +45,6 @@ function Proyectos() {
       setAnim("in");
     }, 300);
   };
-
-  const prev = () => selectProyecto((activo - 1 + total) % total);
-  const next = () => selectProyecto((activo + 1) % total);
 
   return (
     <section id="proyectos" className="proyectos-section">
@@ -77,121 +71,55 @@ function Proyectos() {
           </p>
         </header>
 
-        {/* Viewer principal */}
-        <div className={`proyectos-viewer proyectos-anim-${anim}`}>
-          {/* Imagen */}
-          <div className="proyectos-viewer-img">
+        <div className="proyectos-layout">
+
+          {/* Card destacada */}
+          <div className={`proyectos-featured proyectos-anim-${anim}`}>
             <img
               key={proyecto.imagen}
               src={asset(proyecto.imagen)}
               alt={proyecto.nombre}
-              className="proyectos-viewer-photo"
+              className="proyectos-featured-img"
               loading="lazy"
             />
-            <div className="proyectos-viewer-img-overlay" aria-hidden="true" />
-          </div>
-
-          {/* Info */}
-          <div className="proyectos-viewer-info">
-            <div className="proyectos-viewer-top">
-              <span
-                className="proyectos-counter"
-                aria-label={`Proyecto ${activo + 1} de ${total}`}
-              >
-                {String(activo + 1).padStart(2, "0")}
-                <span className="proyectos-counter-sep"> / </span>
-                {String(total).padStart(2, "0")}
-              </span>
+            <div className="proyectos-featured-overlay" aria-hidden="true" />
+            <div className="proyectos-featured-info">
               <span className="proyectos-region-chip">{proyecto.region}</span>
-            </div>
-
-            <h3 className="proyectos-viewer-nombre">{proyecto.nombre}</h3>
-
-            <div className="proyectos-viewer-ubicacion">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
-                />
-              </svg>
-              {proyecto.ubicacion}
-            </div>
-
-            <div className="proyectos-viewer-descripcion">
-              {parrafos.map((p, i) => (
-                <p key={i}>{p.trim()}</p>
-              ))}
-            </div>
-
-            <div className="proyectos-viewer-footer">
-              <Link to="/cotizacion" className="proyectos-cta">
-                Solicitar cotización
-                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+              <h3 className="proyectos-featured-nombre">{proyecto.nombre}</h3>
+              <div className="proyectos-featured-ubicacion">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
-                    stroke="currentColor"
-                    strokeWidth="2.3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 12h14M13 6l6 6-6 6"
+                    fill="currentColor"
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
                   />
                 </svg>
-              </Link>
-
-              <div className="proyectos-nav-btns">
-                <button
-                  className="proyectos-nav-btn"
-                  onClick={prev}
-                  aria-label="Proyecto anterior"
-                  type="button"
-                >
-                  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                    <path
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19 12H5M11 18l-6-6 6-6"
-                    />
-                  </svg>
-                </button>
-                <button
-                  className="proyectos-nav-btn"
-                  onClick={next}
-                  aria-label="Siguiente proyecto"
-                  type="button"
-                >
-                  <svg width="18" height="18" fill="none" viewBox="0 0 24 24" aria-hidden="true">
-                    <path
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 12h14M13 6l6 6-6 6"
-                    />
-                  </svg>
-                </button>
+                {proyecto.ubicacion}
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Thumbnails de selección */}
-        <div className="proyectos-thumbs" role="tablist" aria-label="Seleccionar proyecto">
-          {proyectos.map((p, idx) => (
-            <button
-              key={p.nombre}
-              role="tab"
-              type="button"
-              aria-selected={idx === activo}
-              className={`proyectos-thumb${idx === activo ? " active" : ""}`}
-              onClick={() => selectProyecto(idx)}
-            >
-              <div className="proyectos-thumb-img">
-                <img src={asset(p.imagen)} alt="" loading="lazy" />
-              </div>
-              <span className="proyectos-thumb-label">{p.nombre}</span>
-            </button>
-          ))}
+          {/* Sidebar de proyectos */}
+          <div className="proyectos-sidebar">
+            {proyectos.map((p, idx) => (
+              <button
+                key={p.nombre}
+                type="button"
+                className={`proyectos-side-card${idx === activo ? " active" : ""}`}
+                onClick={() => selectProyecto(idx)}
+                aria-pressed={idx === activo}
+              >
+                <div className="proyectos-side-img">
+                  <img src={asset(p.imagen)} alt="" loading="lazy" />
+                </div>
+                <div className="proyectos-side-info">
+                  <span className="proyectos-side-region">{p.region}</span>
+                  <h4 className="proyectos-side-nombre">{p.nombre}</h4>
+                  <p className="proyectos-side-ubicacion">{p.ubicacion}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

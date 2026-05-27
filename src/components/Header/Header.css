@@ -6,7 +6,8 @@
   width: 100%;
   z-index: 1000;
   color: #ffffff;
-  background: transparent;
+  background: #000000;
+  border-bottom: 1px solid rgba(25, 169, 231, 0.32);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,16 +15,15 @@
   padding: 0 2.5em;
   height: 72px;
   transition:
-    background var(--t-base),
     box-shadow var(--t-base),
     height var(--t-base);
 }
 
 /* ── Sólido al hacer scroll ──────────────────────────── */
 .header--solid {
-  background: rgba(22, 36, 48, 0.96);
-  backdrop-filter: blur(12px) saturate(130%);
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.22);
+  background: #000000;
+  box-shadow: 0 2px 28px rgba(0, 0, 0, 0.55);
+  border-bottom-color: rgba(25, 169, 231, 0.4);
   height: 64px;
 }
 
@@ -35,8 +35,10 @@
 }
 
 .logo {
-  height: 64px;
-  width: auto;
+  width: 160px;
+  height: auto;
+  max-height: 100px;
+  object-fit: contain;
   display: block;
 }
 
@@ -119,25 +121,103 @@
   color: #ffffff;
 }
 
+/* ── Overlay: oculto por defecto ─────────────────────── */
 .hamburger-menu {
   display: none;
 }
 
-/* ── Menú móvil ──────────────────────────────────────── */
-.hamburger-menu a {
-  gap: 0.75rem;
+/* Fondo técnico del overlay */
+.hamburger-menu__grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(25, 169, 231, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 169, 231, 0.055) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 80% at 50% 45%,
+    rgba(0, 0, 0, 0.88) 0%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 85% 80% at 50% 45%,
+    rgba(0, 0, 0, 0.88) 0%,
+    transparent 100%
+  );
 }
 
-.hamburger-menu a:focus-visible {
+/* Nav interior del overlay */
+.hamburger-menu__nav {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.45rem;
+  width: 100%;
+  max-width: 340px;
+  padding: 0 1.5rem;
+}
+
+/* Links dentro del overlay */
+.hamburger-menu__nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 700;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition:
+    background var(--t-fast),
+    border-color var(--t-fast),
+    color var(--t-fast),
+    transform var(--t-fast);
+  animation: menuLinkIn 0.32s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.hamburger-menu__nav a:hover {
+  background: rgba(25, 169, 231, 0.12);
+  border-color: rgba(25, 169, 231, 0.3);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.hamburger-menu__nav a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 3px rgba(25, 169, 231, 0.4);
 }
 
-.hamburger-menu a.active {
-  background: rgba(25, 169, 231, 0.18);
-  border-color: rgba(25, 169, 231, 0.45);
+.hamburger-menu__nav a.active {
+  background: rgba(25, 169, 231, 0.16);
+  border-color: rgba(25, 169, 231, 0.4);
+  color: #ffffff;
 }
 
+/* CTA dentro del overlay */
+.hamburger-menu__nav a.nav-link-cta {
+  margin-top: 0.5rem;
+  background: var(--clr-primary-light);
+  border-color: transparent;
+  color: #ffffff;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(25, 169, 231, 0.35);
+}
+
+.hamburger-menu__nav a.nav-link-cta:hover {
+  background: var(--clr-primary);
+  border-color: transparent;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(25, 169, 231, 0.4);
+}
+
+/* Iconos */
 .hamburger-menu__icon {
   width: 34px;
   height: 34px;
@@ -156,9 +236,14 @@
   height: 18px;
 }
 
-.hamburger-menu a:hover .hamburger-menu__icon {
+.hamburger-menu__nav a:hover .hamburger-menu__icon {
   background: rgba(25, 169, 231, 0.22);
   border-color: rgba(25, 169, 231, 0.38);
+}
+
+.hamburger-menu__nav a.nav-link-cta .hamburger-menu__icon {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .hamburger-menu__text {
@@ -166,7 +251,25 @@
   min-width: 0;
 }
 
-/* ── Dropdown (sin usar activamente, se mantiene) ────── */
+/* Stagger de entrada */
+.hamburger-menu__nav a:nth-child(1) { animation-delay: 0.06s; }
+.hamburger-menu__nav a:nth-child(2) { animation-delay: 0.11s; }
+.hamburger-menu__nav a:nth-child(3) { animation-delay: 0.16s; }
+.hamburger-menu__nav a:nth-child(4) { animation-delay: 0.21s; }
+.hamburger-menu__nav a:nth-child(5) { animation-delay: 0.26s; }
+
+/* ── Animaciones ─────────────────────────────────────── */
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes menuLinkIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Dropdown (legacy, no usado activamente) ─────────── */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -220,15 +323,20 @@
   display: block;
 }
 
-/* ── Responsive: 546px – 1080px ──────────────────────── */
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+/* Tablet: 546px – 1080px */
 @media (max-width: 1080px) and (min-width: 546px) {
   .header {
-    padding: 0 1.2em;
+    padding: 0 1.5em;
     height: 70px;
   }
 
   .logo {
-    height: 58px;
+    width: 180px;
+    max-height: 120px;
   }
 
   .nav-bar {
@@ -240,25 +348,21 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 1em;
+    right: 1.2em;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1100;
+    z-index: 1200;
     cursor: pointer;
     width: 44px;
     height: 44px;
     border-radius: var(--radius-lg);
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    backdrop-filter: blur(8px);
-    transition:
-      transform var(--t-fast),
-      background var(--t-fast);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: background var(--t-fast);
   }
 
   .hamburger:hover {
-    background: rgba(255, 255, 255, 0.28);
-    transform: translateY(calc(-50% - 1px));
+    background: rgba(255, 255, 255, 0.2);
   }
 
   .hamburger:focus-visible {
@@ -267,56 +371,28 @@
   }
 
   .hamburger-menu {
-    display: block;
-    position: absolute;
-    top: 70px;
-    right: 1em;
-    background: linear-gradient(180deg, rgba(22, 36, 48, 0.96), rgba(10, 18, 28, 0.98));
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    min-width: 220px;
-    padding: 0.7em;
-    z-index: 1200;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-  }
-
-  .hamburger-menu a {
     display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background: #000000;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    color: #fff;
-    padding: 0.85em 1em;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: var(--radius-md);
-    margin-bottom: 0.35em;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition:
-      background var(--t-fast),
-      transform var(--t-fast),
-      border-color var(--t-fast);
-  }
-
-  .hamburger-menu a:hover {
-    background: rgba(25, 169, 231, 0.28); /* --clr-primary-mid */
-    color: #fff;
-    transform: translateY(-1px);
-    border-color: rgba(25, 169, 231, 0.45);
+    justify-content: center;
+    animation: overlayFadeIn 0.22s ease both;
   }
 }
 
-/* ── Responsive: 320px – 545px ───────────────────────── */
-@media (max-width: 545px) and (min-width: 321px) {
+/* Mobile: ≤545px */
+@media (max-width: 545px) {
   .header {
-    padding: 0 0.5em;
-    height: 80px;
+    padding: 0 0.75em;
+    height: 68px;
   }
 
   .logo {
-    height: 62px;
+    width: 160px;
+    max-height: 100px;
   }
 
   .logo-container {
@@ -333,25 +409,21 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 0.6em;
+    right: 0.75em;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 1100;
+    z-index: 1200;
     cursor: pointer;
     width: 40px;
     height: 40px;
     border-radius: var(--radius-md);
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    backdrop-filter: blur(8px);
-    transition:
-      transform var(--t-fast),
-      background var(--t-fast);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: background var(--t-fast);
   }
 
   .hamburger:hover {
-    background: rgba(255, 255, 255, 0.28);
-    transform: translateY(calc(-50% - 1px));
+    background: rgba(255, 255, 255, 0.2);
   }
 
   .hamburger:focus-visible {
@@ -360,43 +432,14 @@
   }
 
   .hamburger-menu {
-    display: block;
-    position: absolute;
-    top: 60px;
-    right: 0.6em;
-    background: linear-gradient(180deg, rgba(22, 36, 48, 0.96), rgba(10, 18, 28, 0.98));
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl);
-    min-width: 200px;
-    padding: 0.6em;
-    z-index: 1200;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(16px);
-  }
-
-  .hamburger-menu a {
     display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background: #000000;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    color: #fff;
-    padding: 0.8em 0.9em;
-    text-decoration: none;
-    font-size: 0.98rem;
-    font-weight: 700;
-    border-radius: var(--radius-md);
-    margin-bottom: 0.3em;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition:
-      background var(--t-fast),
-      transform var(--t-fast),
-      border-color var(--t-fast);
-  }
-
-  .hamburger-menu a:hover {
-    background: rgba(25, 169, 231, 0.28);
-    color: #fff;
-    transform: translateY(-1px);
-    border-color: rgba(25, 169, 231, 0.45);
+    justify-content: center;
+    animation: overlayFadeIn 0.22s ease both;
   }
 }

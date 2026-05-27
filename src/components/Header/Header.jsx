@@ -529,46 +529,36 @@ function Header() {
         aria-controls="header-mobile-menu"
         onClick={() => setShowHamburgerMenu((v) => !v)}
       >
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 7H20"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M4 12H20"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M4 17H20"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-          />
-        </svg>
+        {showHamburgerMenu ? (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M6 6l12 12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+          </svg>
+        ) : (
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7H20" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M4 12H20" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M4 17H20" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+          </svg>
+        )}
       </button>
 
       {showHamburgerMenu && (
-        <nav
+        <div
           id="header-mobile-menu"
           ref={menuRef}
           className="hamburger-menu"
-          aria-label="Menú móvil"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menú de navegación"
         >
-          {navLinks.map((l) => (
-            <React.Fragment key={l.key}>{l.mobile}</React.Fragment>
-          ))}
-        </nav>
+          <div className="hamburger-menu__grid-bg" aria-hidden="true" />
+          <nav className="hamburger-menu__nav" aria-label="Menú móvil">
+            {navLinks.map((l) => (
+              <React.Fragment key={l.key}>{l.mobile}</React.Fragment>
+            ))}
+          </nav>
+        </div>
       )}
     </header>
   );

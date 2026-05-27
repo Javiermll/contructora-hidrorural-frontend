@@ -56,7 +56,7 @@ function Footer() {
     },
   ];
 
-  const renderNavLink = ({ label, id, path, scrollId }) => {
+  const renderNavLink = ({ label, path, scrollId }) => {
     const isCurrentPage = location.pathname === path;
     const isScrollLink = !!scrollId;
 

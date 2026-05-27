@@ -2,6 +2,7 @@ import "./App.css";
 
 import Header from "./components/Header/Header";
 import Servicios from "./components/Servicios/Servicios";
+import StatsStrip from "./components/StatsStrip/StatsStrip";
 import Proyectos from "./components/Proyectos/Proyectos";
 import Clientes from "./components/Clientes/Clientes";
 import Contacto from "./components/Contacto/Contacto";
@@ -15,11 +16,12 @@ function App() {
       <main className="main-content" role="main">
         <Carousel_projectos />
         <Servicios />
+        <StatsStrip />
         <Proyectos />
+        <Contacto />
         <section className="clientes-section">
           <Clientes />
         </section>
-        <Contacto />
         <Footer />
       </main>
     </>

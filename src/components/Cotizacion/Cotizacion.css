@@ -12,7 +12,7 @@
 .cot-hero {
   position: relative;
   width: 100%;
-  background: linear-gradient(160deg, var(--clr-footer) 0%, var(--clr-footer-deep) 100%);
+  background: #000000;
   overflow: hidden;
   padding: calc(72px + 4.5rem) 2.5rem 5rem;
 }
@@ -79,8 +79,11 @@
 
 /* ── Cuerpo ──────────────────────────────────────── */
 .cot-body {
-  background: var(--clr-surface-gray);
-  border-bottom: 1px solid rgba(33, 53, 71, 0.07);
+  background: #000000;
+  background-image:
+    linear-gradient(rgba(25, 169, 231, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 169, 231, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
   padding: 5rem 2.5rem 6rem;
 }
 
@@ -105,7 +108,7 @@
   margin: 0;
   font-size: clamp(1.6rem, 3vw, 2.1rem);
   font-weight: 800;
-  color: var(--clr-text-strong);
+  color: #ffffff;
   letter-spacing: -0.3px;
   line-height: 1.15;
 }
@@ -114,7 +117,7 @@
   margin: 0;
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(33, 53, 71, 0.72);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .cot-contact-list {
@@ -151,14 +154,14 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(33, 53, 71, 0.5);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .cot-contact-value {
   margin: 0;
   font-size: 0.97rem;
   font-weight: 600;
-  color: var(--clr-text-strong);
+  color: rgba(255, 255, 255, 0.82);
   text-decoration: none;
   transition: color var(--t-fast);
 }
@@ -169,18 +172,18 @@ a.cot-contact-value:hover {
 
 /* ── Formulario ──────────────────────────────────── */
 .cot-form-card {
-  background: var(--clr-surface);
-  border: 1px solid rgba(33, 53, 71, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(25, 169, 231, 0.2);
   border-radius: var(--radius-xl);
   padding: 2.2rem 2.4rem 2.4rem;
-  box-shadow: 0 8px 40px rgba(33, 53, 71, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 
 .cot-form-title {
   margin: 0 0 1.5rem;
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--clr-text-strong);
+  color: #ffffff;
   letter-spacing: -0.2px;
 }
 
@@ -194,9 +197,9 @@ a.cot-contact-value:hover {
 .cot-field input,
 .cot-field textarea {
   width: 100%;
-  border: 1.5px solid rgba(33, 53, 71, 0.14);
-  background: var(--clr-surface);
-  color: var(--clr-text-strong);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
   padding: 0.85rem 1rem;
   border-radius: var(--radius-md);
   font-size: 0.95rem;
@@ -211,12 +214,12 @@ a.cot-contact-value:hover {
 .cot-field input:focus,
 .cot-field textarea:focus {
   border-color: var(--clr-primary-light);
-  box-shadow: 0 0 0 3px rgba(25, 169, 231, 0.12);
+  box-shadow: 0 0 0 3px rgba(25, 169, 231, 0.15);
 }
 
 .cot-field input::placeholder,
 .cot-field textarea::placeholder {
-  color: rgba(33, 53, 71, 0.4);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .cot-field textarea {
@@ -290,6 +293,24 @@ a.cot-contact-value:hover {
   .cot-body-inner {
     grid-template-columns: 1fr;
     gap: 3rem;
+    max-width: 640px;
+  }
+
+  .cot-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .cot-info-copy {
+    text-align: center;
+  }
+
+  .cot-contact-list {
+    align-items: center;
+  }
+
+  .cot-form-title {
+    text-align: center;
   }
 }
 
@@ -311,6 +332,23 @@ a.cot-contact-value:hover {
   .cot-form-card {
     padding: 1.5rem 1.4rem 1.8rem;
     border-radius: var(--radius-lg);
+  }
+
+  .cot-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .cot-info-copy {
+    text-align: center;
+  }
+
+  .cot-contact-list {
+    align-items: center;
+  }
+
+  .cot-form-title {
+    text-align: center;
   }
 }
 

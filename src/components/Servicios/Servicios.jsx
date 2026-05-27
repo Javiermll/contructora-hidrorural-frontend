@@ -153,18 +153,29 @@ function Servicios() {
           <nav className="servicios-nav" aria-label="Lista de servicios">
             <div className="servicios-cards">
               {servicios.map((s, idx) => (
-                <button
-                  key={s.nombre}
-                  type="button"
-                  className={`servicios-card${idx === activo ? " active" : ""}`}
-                  onClick={() => setActivo(idx)}
-                  aria-pressed={idx === activo}
-                >
-                  <span className="servicios-card-icon">
-                    {iconosServicios[idx]}
-                  </span>
-                  <span className="servicios-card-text">{s.nombre}</span>
-                </button>
+                <div key={s.nombre} className="servicios-card-wrapper">
+                  <button
+                    type="button"
+                    className={`servicios-card${idx === activo ? " active" : ""}`}
+                    onClick={() => setActivo(idx)}
+                    aria-pressed={idx === activo}
+                  >
+                    <span className="servicios-card-icon">
+                      {iconosServicios[idx]}
+                    </span>
+                    <span className="servicios-card-text">{s.nombre}</span>
+                  </button>
+
+                  {idx === activo && (
+                    <div className="servicios-card-imagen">
+                      <img
+                        src={s.imagenDescriptiva}
+                        alt={`Imagen de ${s.nombre}`}
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </nav>
@@ -175,22 +186,17 @@ function Servicios() {
               className="servicios-panel servicios-detalle-animado"
               aria-label="Detalle del servicio"
             >
-              {/* Banner imagen */}
-              <div className="servicios-panel-banner">
-                <img
-                  key={servicioActivo.imagenDescriptiva}
-                  src={servicioActivo.imagenDescriptiva}
-                  alt={`Imagen de ${servicioActivo.nombre}`}
-                  className="servicios-banner-img"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Cuerpo: título + descripción + bullets + CTA */}
               <div className="servicios-panel-body">
                 <h3 className="servicios-detalle-titulo">
                   {servicioActivo.nombre}
                 </h3>
+                <div className="servicios-panel-img-responsive">
+                  <img
+                    src={servicioActivo.imagenDescriptiva}
+                    alt={`Imagen de ${servicioActivo.nombre}`}
+                    loading="lazy"
+                  />
+                </div>
                 <p className="servicios-detalle-descripcion">
                   {servicioActivo.descripcion}
                 </p>
